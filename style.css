@@ -53,3 +53,20 @@ img {
   height: auto;
   border-radius: 50%;
 }
+
+/* Apply rounded corners to the profile picture */
+.project-photo {
+    border-radius: 10px; /* Adjust the value to control the roundness */
+    overflow: hidden;
+}
+
+/* Apply rounded corners and zoom effect to the project image */
+#projects img {
+    border-radius: 8px; /* Adjust the value to control the roundness */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Zoom effect on hover */
+#projects img:hover {
+    transform: scale(1.1); /* Adjust the scale factor for zoom effect */
+}
