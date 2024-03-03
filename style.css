@@ -1,6 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
-/* style.css */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -54,7 +53,6 @@ img {
   border-radius: 50%;
 }
 
-/* Apply rounded corners to the profile picture */
 .project-photo {
     border-radius: 10px; /* Adjust the value to control the roundness */
     overflow: hidden;
@@ -64,8 +62,8 @@ img {
 #projects img {
     border-radius: 8px; /* Adjust the value to control the roundness */
     transition: transform 0.3s ease-in-out;
-    max-width: 200px; /* Adjust the maximum width */
-    max-height: 150px; /* Adjust the maximum height */
+    max-width: 400px; /* Adjust the maximum width */
+    max-height: 300px; /* Adjust the maximum height */
 }
 
 /* Zoom effect on hover */
