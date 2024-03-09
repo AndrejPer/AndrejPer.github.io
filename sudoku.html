@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sudoku Game</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin: 40px auto;
+      width: 40%;
+    }
+
+    td {
+      width: 50px;
+      height: 50px;
+      border: 1px solid #ccc;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    td.editable {
+      background-color: lightblue;
+      cursor: pointer;
+    }
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+    <div>
+        <table id="sudoku-board"></table>
+        <div class="button-container">
+            <button onclick="clearCells()">Clear</button>
+            <button onclick="solve()">Solve</button>
+          </div>
+        </table>
+
+    </div>
+
+
+<script>
+  // Sample Sudoku board configuration (0 represents an empty cell)
+  const initialBoard = [
+    [5, 3, 0, 0, 7, 0, 0, 0, 0],
+    [6, 0, 0, 1, 9, 5, 0, 0, 0],
+    [0, 9, 8, 0, 0, 0, 0, 6, 0],
+    [8, 0, 0, 0, 6, 0, 0, 0, 3],
+    [4, 0, 0, 8, 0, 3, 0, 0, 1],
+    [7, 0, 0, 0, 2, 0, 0, 0, 6],
+    [0, 6, 0, 0, 0, 0, 2, 8, 0],
+    [0, 0, 0, 4, 1, 9, 0, 0, 5],
+    [0, 0, 0, 0, 8, 0, 0, 7, 9]
+  ];
+  n = 9;
+
+  function generateSudokuBoard(board) {
+    const table = document.getElementById("sudoku-board");
+
+    for (let i = 0; i < 9; i++) {
+      const row = document.createElement("tr");
+
+      for (let j = 0; j < 9; j++) {
+        const cell = document.createElement("td");
+
+        if(initialBoard[i][j] != 0) {
+            cell.textContent = initialBoard[i][j]
+        }
+
+        else {
+            const input = document.createElement("input");
+            input.id = `${i},${j}`;
+            input.type = "number";
+            input.min = 1;
+            input.max = 9;
+            input.readOnly = true;
+            input.classList.add("editable")
+
+            input.addEventListener("click", function () {
+                this.readOnly = !this.readOnly;
+            })
+
+            cell.appendChild(input);
+        }
+
+        row.appendChild(cell);
+      }
+
+      table.appendChild(row);
+    }
+  }
+
+  // Display the initial Sudoku board
+  generateSudokuBoard(initialBoard);
+
+  function clearCells() {
+    var table = document.getElementById("sudoku-board");
+
+    for (var i = 0; i < 9; i++) {
+        for (var j = 0; j < 9; j++) {
+        var cell = table.rows[i].cells[j];
+
+        // Check if the cell has a child element of type number input
+        var numberInput = cell.querySelector('input[type="number"]');
+        if (numberInput) {
+            numberInput.value = "";
+        }
+        }
+    }
+    }
+
+
+</script>
+
+</body>
+</html>
