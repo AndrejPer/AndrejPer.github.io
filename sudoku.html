@@ -119,6 +119,110 @@
     }
     }
 
+    function solve() {
+        // We will store the domains of all the cells in a matrix
+        // entry (k, l) signifies whether number l is in the domain of variable k
+        // cell (i, j) in the sudoku board is represented by variable k = i * 9 + j
+        var domains = Array(81).fill(0).map(() => {return Array(9).fill(1)});
+        // we will flip (k, l) from 1 to 0 if the number l cannot be in the domain of variable k
+
+        let fixed = []; // for storing indices of constraint variables in domain matrix corresponding to a fixed cell
+        // matrix for storing the solution, initially set to zeros
+        let solution = Array(9).fill(0).map(() => {return Array(9).fill(0)});
+
+        // first, we will update the domain of fixed cells and the solution matrix
+        for(let i = 0; i < 9; i++) {
+            for(let j = 0; j < 9; j++) {
+                const value = initialBoard[i][j];
+                if(value != 0) {
+                    //console.log(`at ${i}, ${j}`);
+                    domains[i * 9 + j] = domains[i * 9 + j].map((_, index) => (index + 1 == value ? 1 : 0));
+                    //console.log(domains[i * 9 + j]);
+                    fixed.push(i * 9 + j); // adding its index
+                    solution[i][j] = value; // storing the value
+                }
+            }
+        }
+        //console.log(fixed);
+
+        // next, we will simulate AC-3 algorithm to satisfy constraints
+        
+        // modelling Sudoku with a constraints graph would include three types of arcs
+        // (1) pairwise diferent values in a single row
+        // (2) pairwise diferent values in a single column
+        // (3) pairwise diferent values in a single 3x3 block
+
+        // here, we will not implement the algorithm fully, which would involve a queue
+        // to simplify, we will check the arc consistency of all arcs (i.e. constraints) every time a value is fixed
+
+        // queue for storing variables whose arcs need to be checked
+        let toUpdate = [...fixed];
+        
+        while(fixed.length < 81) {
+            // take the first element that has singlton domain and check arc consistency
+            const cell = toUpdate.shift();
+            // since cell = i * 9 + j, i is the result of integer division with 9 and j i the remainder
+            const j = cell % 9;
+            const i = Math.floor(cell / 9);
+            const value = solution[i][j];
+
+            rowConsistency(value, i, j);
+            columnConsistency(value, i, j);
+            boxConsistency(value, i, j);
+            //console.log(domains);
+
+
+            // check if there are variables whose domains are reduced to a single element
+            for(let p = 0; p < 81; p++){
+                if (fixed.includes(p)) continue; // the corresponding cell is already solved
+
+                // checking there is a single one in a row, meaning domain is a singleton and the variable is solved
+                if(domains[p].reduce((sum, elt) => {return sum + elt;}, 0) == 1) {
+                    toUpdate.push(p);
+                    //console.log(`solved for ${Math.floor(p / 9)}, ${p % 9}`);
+                    fixed.push(p);
+
+                    // to store the number that is left in the domain of the variable, 
+                    // we take the index of the single element 1 that is left in this row of matrix "domains"
+                    // we increment by one since entry j a row of "domains" matrix corresponds to the value j + 1
+                    solution[Math.floor(p / 9)][p % 9] = domains[p].indexOf(1) + 1;
+                }
+
+            }
+        }
+
+        console.log(solution);
+
+        // checking same row -> fixed i
+        function rowConsistency(value, i, j) {
+            // looping over (i, 0), (i, 1), (i, 2), ..., (i, 8)
+            for(let p = 0; p < 9; p++) {
+                // setting to 0 for other cells in the same row meaning it is removed from the domain of that variable
+                if(p != j) domains[i * 9 + p][value - 1] = 0;
+            }
+        }
+
+        function columnConsistency(value, i, j) {
+            // looping over (0, j), (1, j), ..., (8, j)
+            for(let p = 0; p < 9; p++) {
+                if(p != i) domains[p * 9 + j][value - 1] = 0;
+            }
+        }
+
+        
+        function boxConsistency(value, i, j) {
+            // looping over (boxI, boxJ), ..., (boxI, boxJ + 2), ..., (boxI + 2, boxJ + 2)
+            const boxI = Math.floor(i / 3) * 3;
+            const boxJ = Math.floor(j / 3) * 3;
+            for(p = boxI; p < boxI + 3; p++) {
+                for(let q = boxJ; q < boxJ + 3; q++) {
+                    if(p != i || q != j) domains[p * 9 + q][value - 1] = 0;
+                }
+            }
+        }
+
+    }
+
 
 </script>
 
