@@ -70,3 +70,45 @@ img {
 #projects img:hover {
     transform: scale(1.1); /* Adjust the scale factor for zoom effect */
 }
+
+/* Sudoku style */
+table {
+  border-collapse: collapse;
+  margin: 40px auto;
+  width: 40%;
+  border: 1.5px solid black;
+}
+
+td {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 24px;
+}
+
+td.editable {
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+table tr:nth-of-type(3n) {
+    border-bottom: 1.5px solid black;
+}
+
+
+table tr td:nth-of-type(3n) {
+    border-right: 1.5px solid black;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* END of Sudoku style */
