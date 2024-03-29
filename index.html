@@ -4,28 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-v3UGJQMeBkfSTShFfNf87GSHaWy/brU/A2Xhm5HaI3leF5WAogXhjHgqoTZqJK12D2V6btdBR5QlF7a5cXHtBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>Andrej Perković - Personal Website</title>
+
 </head>
 <body>
 
     <header>
         <div id="profile-info">
             <h1>Andrej's Garage</h1>
-            <img id="profile-picture" src="me.jpg" alt="Andrej Perković">
+            <img id="profile-picture" src="assets/images/me.jpg" alt="Andrej Perković">
             <div class="about-me">
                 <h3>About Me</h3>
-                <p>I am passionate about data science and love to solve complex problems.</p>
+                <p>I am passionate about extracing stories from data and soving complex challenges.</p>
             </div>
         </div>
+        <!-- 
         <nav id="sidebar" >
             <div class="navigation-links">
                 <ul>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <!-- Add more navigation links as needed -->
+                    Add more navigation links as needed 
                 </ul>
             </div>
-        </nav>
+        </nav> -->
+    
     </header>
 
     <main>
@@ -37,23 +42,23 @@
             <div class="project">
                 <h3>Abalone Age</h3>
                 <a href="./abalone.html" class="project-photo">
-                    <img src="abalone.jpg" alt="Abalone Age Project">
+                    <img src="assets/images/abalone.jpg" alt="Abalone Age Project">
                 </a>
                 <p>A project focused on predicting the age of abalones based on physical measurements.</p>
             </div>
         
             <div class="project">
                 <h3>Movie Ratings from Reviews</h3>
-                <a href="./movie-reviews.html" class="project-photo">
-                    <img src="hollywood-sign.jpg" alt="Movie Ratings from Reviews Project">
+                <a href="movie-reviews.html" class="project-photo">
+                    <img src="assets/images/hollywood-sign.jpg" alt="Movie Ratings from Reviews Project">
                 </a>
                 <p>An analysis project that predicts movie ratings from user reviews using sentiment analysis techniques.</p>
             </div>
         
             <div class="project">
                 <h3>Sudoku Solver</h3>
-                <a href="./sudoku.html" class="project-photo">
-                    <img src="sudoku.jpg" alt="Sudoku Solver Project">
+                <a href="sudoku.html" class="project-photo">
+                    <img src="assets/images/sudoku.jpg" alt="Sudoku Solver Project">
                 </a>
                 <p>A program designed to solve Sudoku puzzles using the AC-3 constraint satisfaction algorithm.</p>
             </div>
@@ -65,12 +70,14 @@
             <h3>Universite Paris Dauphine - PSL - 2024</h3>
             <p>M1 Informatique, Décisions, Données</p>
         </section>
-        
     </main>
 
     <footer>
-        <!-- Add footer content such as contact information or social media links -->
+        <div class="social-icons" >
+            <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/" target="_blank">GitHub</a>
+        </div>
     </footer>
 
-</body>
+    </body>
 </html>

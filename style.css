@@ -162,6 +162,33 @@ img {
     transform: scale(1.1); /* Adjust the scale factor for zoom effect */
 }
 
+/* Footer styles */
+footer {
+  text-align: center;
+  height: 30px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.social-icons a {
+  color: #333;
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+.social-icons a:hover {
+  color: #0077b5; /* Change color on hover for LinkedIn */
+}
+
+.social-icons a:hover:nth-of-type(2) {
+  color: #4078c0; /* Change color on hover for GitHub */
+}
+
+
 /* Sudoku style */
 table {
   border-collapse: collapse;
