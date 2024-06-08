@@ -5,62 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-v3UGJQMeBkfSTShFfNf87GSHaWy/brU/A2Xhm5HaI3leF5WAogXhjHgqoTZqJK12D2V6btdBR5QlF7a5cXHtBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <title>Andrej Perković - Personal Website</title>
-
 </head>
 <body>
-
     <header>
         <div id="profile-info">
             <h1>Andrej's Garage</h1>
             <img id="profile-picture" src="assets/images/me.jpg" alt="Andrej Perković">
             <div class="about-me">
                 <h3>About Me</h3>
-                <p>I am passionate about extracting stories from data and soving complex challenges.</p>
+                <p>I am passionate about extracting stories from data and solving complex challenges.</p>
             </div>
+            <nav id="sidebar">
+                <div class="navigation-links">
+                    <ul>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#competitions">Competitions</a></li>
+                        <li><a href="#inprogress">In Progress</a></li>
+                        <li><a href="#education">Education</a></li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-        <!-- 
-        <nav id="sidebar" >
-            <div class="navigation-links">
-                <ul>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    Add more navigation links as needed 
-                </ul>
-            </div>
-        </nav> -->
-    
     </header>
 
-    <main>
-
-        <section id="project-section" >
+    <main class="content">
+        <section id="project-section">
             <h2>Projects</h2>
-        
-            <div id="projects">
-            <div class="project">
-                <h3>Abalone Age</h3>
-                <a href="./abalone.html" class="project-photo">
-                    <img src="assets/images/abalone.jpg" alt="Abalone Age Project">
-                </a>
-                <p>A project focused on predicting the age of abalones based on physical measurements.</p>
+            <div id="projects" class="projects-grid">
+                <div class="project">
+                    <h3>Abalone Age</h3>
+                    <a href="./abalone.html" class="project-photo">
+                        <img src="assets/images/abalone.jpg" alt="Abalone Age Project">
+                    </a>
+                    <p>A project focused on predicting the age of abalones based on physical measurements.</p>
+                </div>
+                <div class="project">
+                    <h3>Sudoku Solver</h3>
+                    <a href="sudoku.html" class="project-photo">
+                        <img src="assets/images/sudoku.jpg" alt="Sudoku Solver Project">
+                    </a>
+                    <p>A program designed to solve Sudoku puzzles using the AC-3 constraint satisfaction algorithm.</p>
+                </div>
             </div>
-    
-        
-            <div class="project">
-                <h3>Sudoku Solver</h3>
-                <a href="sudoku.html" class="project-photo">
-                    <img src="assets/images/sudoku.jpg" alt="Sudoku Solver Project">
-                </a>
-                <p>A program designed to solve Sudoku puzzles using the AC-3 constraint satisfaction algorithm.</p>
-            </div>
-        </div>
         </section>
 
-        <section>
+        <section id="competitions">
             <h2>Competitions</h2>
-            <div id="competitions">
+            <div class="projects-grid">
                 <div class="project">
                     <h3>CorrSeg - Semantic Segmentation</h3>
                     <a href="./corrseg.html" class="project-photo">
@@ -71,15 +63,15 @@
             </div>
         </section>
 
-        <section>
+        <section id="inprogress">
             <h2>In Progress</h2>
-            <div id="inprogress">
+            <div class="projects-grid">
                 <div class="project">
                     <h3>Cirrhosis Prediction</h3>
                     <a href="./cirrhosis.html" class="project-photo">
-                        <img src="assets/images/drugs.jpg" alt="Cirhosis Treatement Project">
+                        <img src="assets/images/drugs.jpg" alt="Cirrhosis Treatment Project">
                     </a>
-                    <p>A project focused on predicting the outcome of a drug treatement of Cirrhosis patients with the help of Gradient boosting.</p>
+                    <p>A project focused on predicting the outcome of a drug treatment of cirrhosis patients with the help of gradient boosting.</p>
                 </div>
                 <div class="project">
                     <h3>Movie Ratings from Reviews</h3>
@@ -88,23 +80,21 @@
                     </a>
                     <p>An analysis project that predicts movie ratings from user reviews using sentiment analysis techniques.</p>
                 </div>
-
             </div>
         </section>
 
         <section id="education">
             <h2>Education</h2>
-            <h3>Universite Paris Dauphine - PSL - 2024</h3>
+            <h3>Université Paris Dauphine - PSL - 2024</h3>
             <p>M1 Informatique, Décisions, Données</p>
         </section>
     </main>
 
     <footer>
-        <div class="social-icons" >
+        <div class="social-icons">
             <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
             <a href="https://github.com/" target="_blank">GitHub</a>
         </div>
     </footer>
-
-    </body>
+</body>
 </html>

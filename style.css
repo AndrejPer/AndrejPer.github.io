@@ -1,231 +1,177 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-  display: flex;
-  min-height: 100vh;
-
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    min-height: 100vh;
 }
-
-
-.content {
-  flex: 1;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
-}
-.project-card {
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-footer {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-#projects, #competitions, #inprogress {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
-  margin-top: 20px;
-}
-
-.project {
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.project h3 {
-  margin-top: 0;
-}
-
-.project-photo {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.project-photo img {
-  width: 100%;
-  border-radius: 5px;
-}
-
-
-
-
-/* Header styles */
 
 header {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: #555;
-  color: #ccc;
+    background-color: #555;
+    color: #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    width: 250px;
 }
 
-/* Profile info styles */
 #profile-info {
-  background-color: #555;
-  width: 200px;
-  padding: 20px;
-  z-index: 1000; 
+    width: 100%;
+    text-align: center;
 }
 
 #profile-picture {
-  width: 100%;
-  display: block;
-  margin-bottom: 20px;
-  border-radius: 50%;
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.about-me {
+    text-align: center;
 }
 
 .about-me p {
-  margin-top: 0;
+    margin-top: 0;
 }
 
-/* Navigation styles */
-#sidebar {
-  background-color: #555;
-  width: 150px;
-  padding: 20px;
-  display: block;
+nav#sidebar {
+    width: 100%;
+    margin-top: 20px;
 }
 
 .navigation-links ul {
-  list-style-type: none;
-  padding: 0;
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
 }
 
 .navigation-links ul li {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .navigation-links ul li a {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 10px;
+    background-color: #666;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-
-
-main {
-  padding: 20px;
-  padding-left: 20px;
-  width: calc(100% - 150px);
+.navigation-links ul li a:hover {
+    background-color: #777;
 }
 
-section {
-  margin-bottom: 20px;
-  margin-top: 5px;
+main.content {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 50%;
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+.project {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.project h3 {
+    margin-top: 0;
 }
 
 .project-photo {
-    border-radius: 10px; /* Adjust the value to control the roundness */
-    overflow: hidden;
+    display: block;
+    margin-bottom: 10px;
 }
 
-/* Apply rounded corners and zoom effect to the project image */
-#projects img {
-    border-radius: 8px; /* Adjust the value to control the roundness */
+.project-photo img {
+    width: 100%;
+    border-radius: 5px;
     transition: transform 0.3s ease-in-out;
-    max-width: 400px; /* Adjust the maximum width */
-    max-height: 300px; /* Adjust the maximum height */
 }
 
-/* Zoom effect on hover */
-#projects img:hover {
-    transform: scale(1.1); /* Adjust the scale factor for zoom effect */
+.project-photo img:hover {
+    transform: scale(1.1);
 }
 
-/* Footer styles */
+section {
+    margin-bottom: 20px;
+}
+
 footer {
-  text-align: center;
-  height: 30px;
-  padding: 10px;
-  background-color: #f0f0f0;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .social-icons a {
-  color: #333;
-  font-size: 24px;
-  margin: 0 10px;
+    color: #fff;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
 }
 
 .social-icons a:hover {
-  color: #0077b5; /* Change color on hover for LinkedIn */
+    color: #0077b5;
 }
 
 .social-icons a:hover:nth-of-type(2) {
-  color: #4078c0; /* Change color on hover for GitHub */
+    color: #4078c0;
 }
-
 
 /* Sudoku style */
 table {
-  border-collapse: collapse;
-  margin: 40px auto;
-  width: 40%;
-  border: 1.5px solid black;
+    border-collapse: collapse;
+    margin: 40px auto;
+    width: 40%;
+    border: 1.5px solid black;
 }
 
 td {
-  width: 50px;
-  height: 50px;
-  border: 1px solid #ccc;
-  text-align: center;
-  font-size: 24px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 24px;
 }
 
 td.editable {
-  background-color: lightblue;
-  cursor: pointer;
+    background-color: lightblue;
+    cursor: pointer;
 }
 
 table tr:nth-of-type(3n) {
     border-bottom: 1.5px solid black;
 }
 
-
 table tr td:nth-of-type(3n) {
     border-right: 1.5px solid black;
 }
 
 input {
-  width: 100%;
-  box-sizing: border-box;
-  text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-/* END of Sudoku style */
