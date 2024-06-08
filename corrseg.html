@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corrseg</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 50px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+        h1, h2 {
+            color: #555;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        img {
+            max-width: 80%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Corrseg:</h1>
+        <h2>UNet-inspired CNN for Semantic Segmentation</h2>
+
+        <div class="section">
+            <h3>Problem Description</h3>
+            <p>This project was developed for a competition focused on semantic segmentation. Semantic segmentation is a crucial task in computer vision, involving the classification of each pixel in an image into a specific category.</p>
+        </div>
+
+        <div class="section">
+            <h3>Network Diagram</h3>
+            <img src="./assets/images/my_arch.png" alt="Network Diagram">
+        </div>
+
+        <div class="section">
+            <h2>Project Discussion</h2>
+            <p>The UNet-inspired CNN architecture was chosen due to its effectiveness in biomedical image segmentation. The model includes an encoder-decoder structure that helps in capturing the context and fine details of the images.
+                There are three triplets for down-sampling (blue) and two for upsamping. There is also one skip conncetion, which helps in preventing vanishing gradient.
+            </p>
+        </div>
+
+        <div class="section">
+            <h3>Leaderboard</h3>
+            <img src="./assets/images/leadboard.png" alt="Leaderboard">
+        </div>
+
+        <div class="section">
+            <h3>More Details</h3>
+            <p>For more details, visit the <a href="https://challengedata.ens.fr/participants/challenges/144/" target="_blank">project page</a>.</p>
+            <!-- Replace the URL above with the actual URL you want to link to -->
+            <img src="./assets/images/challenge-data.png" alt="Details Screenshot">
+            <!-- Replace the path with the actual path to your screenshot -->
+        </div>
+    </div>
+</body>
+</html>

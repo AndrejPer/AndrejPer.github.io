@@ -22,7 +22,6 @@ body {
 
 
 
-
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -43,7 +42,7 @@ footer {
   width: 100%;
 }
 
-#projects, #inprogress {
+#projects, #competitions, #inprogress {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
