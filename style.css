@@ -71,6 +71,8 @@ main.content {
     flex: 1;
     padding: 20px;
     box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .projects-grid {
@@ -115,7 +117,6 @@ footer {
     color: #fff;
     padding: 10px;
     text-align: center;
-    position: fixed;
     bottom: 0;
     width: 100%;
 }
