@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-v3UGJQMeBkfSTShFfNf87GSHaWy/brU/A2Xhm5HaI3leF5WAogXhjHgqoTZqJK12D2V6btdBR5QlF7a5cXHtBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
 <title>Corrseg</title>
     <style>
         body {
@@ -22,26 +25,45 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             max-width: 800px;
         }
-        h1, h2 {
-            color: #555;
-        }
+
         .section {
             margin-bottom: 30px;
         }
-        img {
+        #diagram {
             max-width: 80%;
             height: auto;
             display: block;
             margin: 0 auto;
         }
-        iframe {
-            width: 100%;
-            height: 500px;
-            border: 1px solid #ccc;
-        }
+
     </style>
 </head>
 <body>
+    <header>
+        <div id="profile-info">
+            <a href="index.html" style="text-decoration: none;"><h1>Andrej's Garage</h1></a>
+            </a>
+            <a href="index.html">
+                <img id="profile-picture" src="assets/images/me.jpg" alt="Andrej Perković">
+            </a>
+            <div class="about-me">
+                <h3>About Me</h3>
+                <p>I am passionate about extracting stories from data and solving complex challenges.</p>
+            </div>
+            <nav id="sidebar">
+                <div class="navigation-links">
+                    <ul>
+                        <li><a href="index.html#competitions">Competitions</a></li>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="index.html#inprogress">In Progress</a></li>
+                        <li><a href="index.html#education">Education</a></li>
+                    </ul>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
     <div class="container">
         <div class="section">
             <h1 style="text-align: center;">Corrseg</h1>
@@ -55,7 +77,7 @@
 
         <div class="section">
             <h3>Network Diagram</h3>
-            <img src="./assets/images/my_arch.png" alt="Network Diagram">
+            <img src="./assets/images/my_arch.png" alt="Network Diagram" id="diagram">
         </div>
 
         <div class="section">
@@ -78,11 +100,11 @@
                 <div style="display: flex; justify-content: center; align-items: center;">
                     <figure>
                         <img src="./assets/images/loss.png" alt="Loss Function" style="max-width: 100%; height: auto;">
-                        <figcaption style="text-align: center;">Loss Function</figcaption>
+                        <figcaption style="text-align: center;">An example of a Loss Function</figcaption>
                     </figure>
                     <figure>
                         <img src="./assets/images/jaccard.png" alt="Jaccard" style="max-width: 100%; height: auto;">
-                        <figcaption style="text-align: center;">Estimated IoU</figcaption>
+                        <figcaption style="text-align: center;">An example of IoU estimation</figcaption>
                     </figure>
                 </div>
             </div>
@@ -99,7 +121,7 @@
         <div class="section">
             <h3>More Details</h3>
             <p>For more details, visit the <a href="https://challengedata.ens.fr/participants/challenges/144/" target="_blank">project page</a>.</p>
-            <img src="./assets/images/challenge-data.png" alt="Details Screenshot">
+            
         </div>
     </div>
 </body>

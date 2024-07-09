@@ -67,6 +67,11 @@ nav#sidebar {
     background-color: #777;
 }
 
+a:link, a:visited, a:hover, a:active {
+    color: initial; /* Or specify a color like #000000 for black */
+    /* text-decoration: none; /* Optional: removes underline from links */
+}
+
 main.content {
     flex: 1;
     padding: 20px;
@@ -134,6 +139,12 @@ footer {
 
 .social-icons a:hover:nth-of-type(2) {
     color: #4078c0;
+}
+
+iframe {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #ccc;
 }
 
 /* Sudoku style */
