@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://andrejper.github.io/assets/images/my_arch.png">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-v3UGJQMeBkfSTShFfNf87GSHaWy/brU/A2Xhm5HaI3leF5WAogXhjHgqoTZqJK12D2V6btdBR5QlF7a5cXHtBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     
 <title>Corrseg</title>
     <style>
@@ -108,7 +110,7 @@
                     </figure>
                 </div>
             </div>
-            <p>The model was trained using the Adam optimizer with a learning rate of 0.0001. The loss function used was the binary cross-entropy loss, which is suitable for binary classification tasks like semantic segmentation. The model was trained for 84 epochs with a batch size of 128 for training and 256 for validation. Why different sizes? Training requires roughly twice as much memory (forward pass and backpropagation) than validation (only a forward pass). The training data was split into 80% training and 20% validation sets to monitor the model's performance during training. In the competition, the score is given as the intersection of the union or <a href="https://en.wikipedia.org/wiki/Jaccard_index" target="_blank">Jaccard Index</a> over the image pixels. Hence, IoU was estimated at every iteration as the average over all batches of validation examples. </p>
+            <p>The model was trained using the Adam optimizer with a learning rate of 0.0001. The loss function used was the binary cross-entropy loss, which is suitable for binary classification tasks like semantic segmentation. The model was trained for 75 epochs with a batch size of 128 for training and 256 for validation. Why different sizes? Training requires roughly twice as much memory (forward pass and backpropagation) than validation (only a forward pass). The training data was split into 80% training and 20% validation sets to monitor the model's performance during training. In the competition, the score is given as the intersection of the union or <a href="https://en.wikipedia.org/wiki/Jaccard_index" target="_blank">Jaccard Index</a> over the image pixels. Hence, IoU was estimated at every iteration as the average over all batches of validation examples. </p>
 
         </div>
 
