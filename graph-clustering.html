@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://andrejper.github.io/assets/images/my_arch.png">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-v3UGJQMeBkfSTShFfNf87GSHaWy/brU/A2Xhm5HaI3leF5WAogXhjHgqoTZqJK12D2V6btdBR5QlF7a5cXHtBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Graph Clustering</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        header {
+            width: 300px; /* Increased width for the navbar */
+            background-color: #2f2f2f; /* Updated color to a darker gray */
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        #profile-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #profile-picture {
+            border-radius: 50%;
+            width: 140px; /* Slightly larger profile picture */
+            height: 140px;
+            margin-bottom: 15px;
+        }
+        #profile-info h1 {
+            font-size: 24px; /* Slightly larger font size for title */
+            margin: 10px 0;
+        }
+        #profile-info p {
+            font-size: 14px;
+            color: #ccc;
+        }
+        nav {
+            width: 100%;
+        }
+        .navigation-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .navigation-links button {
+            width: 90%; /* Wider buttons to match the navbar */
+            padding: 12px 20px;
+            margin: 10px 0;
+            background-color: #444; /* Updated button color for better contrast */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .navigation-links button:hover {
+            background-color: #555; /* Slightly lighter color on hover */
+        }
+        .navigation-links button a {
+            color: #fff;
+            text-decoration: none;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="profile-info">
+            <h1>Andrej's Garage</h1>
+            <img id="profile-picture" src="assets/images/me.jpg" alt="Andrej Perković">
+            
+            <p>I am passionate about extracting stories from data and solving complex challenges.</p>
+        </div>
+        <nav>
+            <div class="navigation-links">
+                <button><a href="index.html#competitions">Competitions</a></button>
+                <button><a href="index.html#projects">Projects</a></button>
+                <button><a href="index.html#inprogress">In Progress</a></button>
+                <button><a href="index.html#education">Education</a></button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Graph Clustering</h1>
+            <p>This notebook explores the application of the Markov Cluster Algorithm (MCL), a method for graph clustering commonly used in bioinformatics, network analysis, and data segmentation. The content demonstrates algorithm implementation, key steps, and results, providing insights into how MCL partitions networks into clusters. It includes code snippets, outputs, and visualization to guide the understanding of clustering dynamics.</p>
+            <iframe src="MCL.html" width="100%" height="600px" frameborder="0"></iframe>
+        </div>
+    </main>
+</body>
+</html>
