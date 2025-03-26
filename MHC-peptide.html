@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<!-- TODO 
+ - Align page layout with the provided design
+ - Add the necessary HTML elements to match the design
+ - Add the necessary CSS to match the design
+ - Enrich the teext content
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CapsNet for MHC Binding Prediction</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      line-height: 1.6;
+      margin: 2em;
+      background-color: #fff;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #111;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1em 0;
+    }
+    table, th, td {
+      border: 1px solid #aaa;
+    }
+    th, td {
+      padding: 0.5em;
+      text-align: center;
+    }
+    code {
+      background: #eee;
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+    }
+    .figure {
+      text-align: center;
+      margin: 1em 0;
+    }
+    .figure img {
+      max-width: 80%;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Implementation of CapsNet for MHC Binding Prediction</h1>
+
+  <h2>Abstract</h2>
+  <p>
+    This report presents the implementation of Capsule Networks (<a href="https://arxiv.org/pdf/1710.09829">CapsNet</a>) for predicting MHC-peptide binding hit. The study covers dataset analysis, methodological explanation, experimental setup, and result evaluation. The advantages of CapsNet are explored through several experiments. This study is the implementation of <a href="https://www.nature.com/articles/s42003-023-04867-2">CapsNet-MHS</a> paper.
+  </p>
+
+  <h2>1. Introduction</h2>
+  <p>
+    Capsule Networks (CapsNet) have been proposed as an alternative to traditional Convolutional Neural Networks (CNNs) to better capture spatial hierarchies. This project aims to implement CapsNet for MHC-peptide binding prediction, evaluating its performance against conventional deep learning models.
+  </p>
+
+  <h2>2. Dataset Analysis</h2>
+  <h3>2.1 Dataset Overview</h3>
+  <p>
+    The dataset utilized is the <em>NetMHC</em> dataset. It comprises over 3.6 million peptide-allele pairs labeled for MHC class I binding. The distribution of alleles is heavily imbalanced.
+  </p>
+
+  <div class="figure">
+    <img src="assets/figures/allele_train_distr.png" alt="Allele frequency distribution in the training set">
+    <p><em>Figure 1:</em> Allele frequency distribution in the training set</p>
+  </div>
+
+  <div class="figure">
+    <img src="assets/figures/train_burst.png" alt="Hierarchical distribution of alleles">
+    <p><em>Figure 2:</em> Hierarchical distribution of alleles</p>
+  </div>
+
+  <h3>2.2 Challenges</h3>
+  <ul>
+    <li>Extreme class imbalance (94.6% non-binding, 5.4% binding)</li>
+    <li>Imbalanced allele frequency and presence of unseen alleles in test set</li>
+    <li>Need for robust embeddings (e.g., using BLOSUM)</li>
+  </ul>
+
+  <h2>3. Method Explanation</h2>
+  <h3>3.1 Capsule Networks</h3>
+  <p>
+    Capsule Networks represent local features using vectors instead of scalars. Each vector's norm indicates probability, while the direction captures spatial relationships. Inputs \( u_i \) are transformed via matrices \( W_{ij} \), producing \( \hat{u}_{j|i} = W_{ij} u_i \). Outputs are computed as:
+  </p>
+  <p>
+    \( s_j = \sum_i c_{ij} \hat{u}_{j|i} \), and the final capsule output is:
+    \( v_j = \frac{||s_j||^2}{1 + ||s_j||^2} \cdot \frac{s_j}{||s_j||} \)
+  </p>
+
+  <div class="figure">
+    <img src="assets/figures/architecture.png" alt="Network architecture">
+    <p><em>Figure 3:</em> Network architecture from reference [Kalemati 2023]</p>
+  </div>
+
+  <h3>3.2 Implementation Details</h3>
+  <ul>
+    <li>Sigmoid output for binary classification</li>
+    <li>Binary Cross Entropy (BCE) loss used</li>
+    <li>Alleles represented using amino acid sequences</li>
+    <li>Input features encoded using BLOSUM matrices</li>
+  </ul>
+
+  <h2>4. Experiment Description</h2>
+  <ul>
+    <li>BLOSUM45, 62, and 80 embeddings compared</li>
+    <li>Trained for 10 epochs with Adam optimizer at \(10^{-6}\). Although the learning rate might appear small, the batch size used is rather big.</li>
+    <li>Used weighted BCE to compensate for the imbalance</li>
+    <li>Used <code>vast.ai</code> for training due to computational cost</li>
+    <li>Batch size: 512 (train), 1024 (validation)</li>
+    <li>Retrained on the whole training set with BLOSUM62 for 30 epochs</li>
+    <li>Evaluating with AUC PR, since properly classifying the positive class is more important than being able to distinguish between the classes, which is modeled by AUC ROC</li>
+  </ul>
+  
+
+
+  <h2>5. Result Analysis</h2>
+
+  <div class="figure">
+    <img src="assets/figures/loss_area_29.png" alt="Training loss for BLOSUM62" />
+    <p><em>Figure 3:</em> Training and validation loss, AUC Precision-Recal and Mathew's correlation coefficient curve for BLOSUM62 embedding</p>
+  </div>
+
+  <div class="figure">
+    <img src="assets/figures/pr_curve_29.png" alt="PR curve for BLOSUM62 after 30 epochs" />
+    <p><em>Figure 4:</em> The final precision-recal curve</p>
+  </div>
+
+  <!-- <div class="figure">
+    <img src="figures/auc-roc.png" alt="AUC-ROC curves for different BLOSUM embeddings">
+    <p><em>Figure 4:</em> AUC-ROC curves for validation</p>
+  </div> -->
+
+  <table>
+    <caption>Table 1: AUC-ROC values on validation set</caption>
+    <tr><th>BLOSUM Matrix</th><th>AUC-ROC</th></tr>
+    <tr><td>BLOSUM45</td><td>0.8407</td></tr>
+    <tr><td>BLOSUM62</td><td>0.8375</td></tr>
+    <tr><td>BLOSUM80</td><td>0.8407</td></tr>
+  </table>
+
+  <!-- <div class="figure">
+    <img src="figures/auc_test.png" alt="Test AUC-ROC curve">
+    <p><em>Figure 5:</em> AUC-ROC on the test set (BLOSUM45)</p>
+  </div> -->
+
+  <table>
+    <caption>Table 2: Test set performance metrics for the final model trained for 30 epochs.</caption>
+    <tr><th>Metric</th><th>Value</th></tr>
+    <tr><td>AUC PR</td><td>0.370</td></tr>
+    <tr><td>MCC</td><td>0.333</td></tr>
+    <tr><td>Accuracy</td><td>0.798</td></tr>
+    <!-- <tr><td>Precision</td><td>0.0480</td></tr>
+    <tr><td>Recall</td><td>1.0000</td></tr> -->
+    <tr><td>F1-Score</td><td>0.306</td></tr>
+  </table>
+
+  <table>
+    <caption>Table 3: Validation set performance metrics for the final model trained for 30 epochs.</caption>
+    <tr><th>Metric</th><th>Value</th></tr>
+    <tr><td>AUC PR</td><td>0.374</td></tr>
+    <tr><td>MCC</td><td>0.339</td></tr>
+    <tr><td>Accuracy</td><td>0.805</td></tr>
+    <!-- <tr><td>Precision</td><td>0.0480</td></tr>
+    <tr><td>Recall</td><td>1.0000</td></tr> -->
+    <tr><td>F1-Score</td><td>0.314</td></tr>
+  </table>
+
+  <h3>Discussion</h3>
+  <p>
+    CapsNet-MHC showed strong results on imbalanced data. An alternative NLP-based approach using fastText-like embeddings was tested but was computationally prohibitive due to massive training pairs.
+  </p>
+
+  <h2>6. Conclusion</h2>
+  <p>
+    Capsule Networks effectively capture peptide-allele interactions. While promising, further tuning and training on all folds is necessary to realize full potential.
+  </p>
+
+  <h2>7. Further Work</h2>
+  <p>
+    Future efforts should focus on hyperparameter tuning, reconsidering the attention approach and deeper analysis of capsule outputs for the purpose of explainability.
+  </p>
+
+</body>
+</html>
