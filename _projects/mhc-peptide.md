@@ -51,11 +51,11 @@ The dataset utilized is the <em>NetMHC</em> dataset. It comprises over 3.6 milli
 
 Capsule Networks represent local features using vectors instead of scalars. Each vector's norm indicates probability, while the direction captures spatial relationships. Inputs $u_i$ are transformed via matrices $W_{ij}$, producing $$\hat{u}_{j \mid i} = W_{ij} u_i$$. Outputs are computed as:
 
-$$ s_j = \sum_i c_{ij} \hat{u}_{j|i} $$
+$$s_j = \sum_i c_{ij} \hat{u}_{j|i}$$
 
 and the final capsule output is:
 
-$$ v_j = \frac{||s_j||^2}{1 + ||s_j||^2} \cdot \frac{s_j}{||s_j||} $$
+$$v_j = \frac{||s_j||^2}{1 + ||s_j||^2} \cdot \frac{s_j}{||s_j||}$$
 
 #### Implementation Details
 
