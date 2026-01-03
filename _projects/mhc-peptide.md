@@ -96,30 +96,30 @@ The model was trained using the Adam optimizer with a learning rate of $10^{-6}$
 ### Results
 
 | BLOSUM Matrix | AUC-ROC |
-|---------------|---------|
+| ------------- | ------- |
 | BLOSUM45      | 0.8407  |
 | BLOSUM62      | 0.8375  |
 | BLOSUM80      | 0.8407  |
 
-*Table 1:* AUC-ROC values on validation set
+_Table 1:_ AUC-ROC values on validation set
 
 | Metric   | Value |
-|----------|-------|
+| -------- | ----- |
 | AUC PR   | 0.370 |
 | MCC      | 0.333 |
 | Accuracy | 0.798 |
 | F1-Score | 0.306 |
 
-*Table 2:* Test set performance metrics for the final model trained for 30 epochs.
+_Table 2:_ Test set performance metrics for the final model trained for 30 epochs.
 
 | Metric   | Value |
-|----------|-------|
+| -------- | ----- |
 | AUC PR   | 0.374 |
 | MCC      | 0.339 |
 | Accuracy | 0.805 |
 | F1-Score | 0.314 |
 
-*Table 3:* Validation set performance metrics for the final model trained for 30 epochs.
+_Table 3:_ Validation set performance metrics for the final model trained for 30 epochs.
 
 #### Discussion
 
@@ -128,4 +128,3 @@ CapsNet-MHC showed strong results on imbalanced data. An alternative NLP-based a
 ### Conclusion
 
 Capsule Networks effectively capture peptide-allele interactions. While promising, further tuning and training on all folds is necessary to realize full potential. Future efforts should focus on hyperparameter tuning, reconsidering the attention approach and deeper analysis of capsule outputs for the purpose of explainability.
-
