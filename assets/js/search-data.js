@@ -64,9 +64,9 @@ ninja.data = [{
           description: "Implementation of Capsule Networks for predicting MHC-peptide binding",
           section: "Projects",handler: () => {
               window.location.href = "/projects/mhc-peptide/";
-            },},{id: "projects-music-classification-with-convolution",
-          title: 'Music classification with convolution',
-          description: "",
+            },},{id: "projects-music-classification",
+          title: 'Music classification',
+          description: "Transfering audio classification problem into a visual one and tackling it with convolutional approach",
           section: "Projects",handler: () => {
               window.location.href = "/projects/music_class/";
             },},{
