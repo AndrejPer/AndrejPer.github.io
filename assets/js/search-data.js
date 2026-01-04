@@ -79,6 +79,11 @@ ninja.data = [{
           description: "Transfering audio classification problem into a visual one and tackling it with convolutional approach",
           section: "Projects",handler: () => {
               window.location.href = "/projects/music_class/";
+            },},{id: "projects-sudoku-solver",
+          title: 'Sudoku Solver',
+          description: "Program designed to solve Sudoku puzzles using the AC-3 constraint satisfaction algorithm",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/sudoku/";
             },},{
         id: 'social-cv',
         title: 'CV',
