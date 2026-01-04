@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Music classification with convolution
-description:
+title: Music classification
+description: Transfering audio classification problem into a visual one and tackling it with convolutional approach
 img: assets/img/metal_audio.png
 importance: 1
 category: school
