@@ -54,11 +54,21 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-corrseg",
+          section: "News",},{id: "projects-abalone-age",
+          title: 'Abalone Age',
+          description: "Predicting the age of abalones based on physical measurements",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/abalone/";
+            },},{id: "projects-corrseg",
           title: 'CorrSeg',
           description: "UNet-inspired CNN for Semantic Segmentation",
           section: "Projects",handler: () => {
               window.location.href = "/projects/corrseg/";
+            },},{id: "projects-graph-clustering",
+          title: 'Graph Clustering',
+          description: "Clustering graphs using Markov Chains to identify community structures within networks",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/graph_clustering/";
             },},{id: "projects-protein-binding-prediction",
           title: 'Protein binding prediction',
           description: "Implementation of Capsule Networks for predicting MHC-peptide binding",
