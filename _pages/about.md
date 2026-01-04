@@ -25,7 +25,9 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hello, I am Andrej.
+Hello, I am Andrej. I recently graduated from the applied math master's - MVA - in Paris. My education and experience so far has been focused on AI in healthcare. I particularly enjoy projects that are challenging and impactful.
+
+If you find anything interested or just wanna reach out, don't hesitate to find me on social media.
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpeg` and put it in the `img/` folder.
 
