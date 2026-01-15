@@ -53,6 +53,11 @@ ninja.data = [{
           description: "UNet-inspired CNN for Semantic Segmentation",
           section: "Projects",handler: () => {
               window.location.href = "/projects/corrseg/";
+            },},{id: "projects-english-to-serbian-translation",
+          title: 'English to Serbian Translation',
+          description: "Neural machine translation model for English to Serbian language pairs",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/english-serbian-translation/";
             },},{id: "projects-graph-clustering",
           title: 'Graph Clustering',
           description: "Clustering graphs using Markov Chains to identify community structures within networks",
