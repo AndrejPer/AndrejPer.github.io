@@ -4,7 +4,7 @@ layout: page
 title: Abalone Age
 description: Predicting the age of abalones based on physical measurements
 img: assets/img/abalone.jpg
-importance: 2
+importance: 3
 category: fun
 related_publications: false
 ---
