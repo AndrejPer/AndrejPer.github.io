@@ -40,7 +40,7 @@ for i in range (N**2):
     row = i // N + 1
     # for each cell in the same row
     for j in range(i + 1, N * row):
-        # now we make a diagonal matrix preventing assignment 
+        # now we make a diagonal matrix preventing assignment
         # of the same value to cells in the same row
         ListConstraintsRow = []
         # for each value in domain of Y_i
@@ -100,9 +100,9 @@ for i in range(0, N**2, 3): # TODO change 3's into sqrt(N)
             # for each value, penalize identical assignment
             for a in range(N):
                 for b in range(N):
-                    if a != b: 
+                    if a != b:
                         ListConstraintsBox.append(0)
-                    else: 
+                    else:
                         ListConstraintsBox.append(top)
             Problem.AddFunction([box_indices[k], box_indices[l]], ListConstraintsBox)
 
