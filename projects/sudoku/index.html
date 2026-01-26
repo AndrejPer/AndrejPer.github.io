@@ -17,7 +17,7 @@
     <span class="n">row</span> <span class="o">=</span> <span class="n">i</span> <span class="o">//</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="c1"># for each cell in the same row
 </span>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span> <span class="o">*</span> <span class="n">row</span><span class="p">):</span>
-        <span class="c1"># now we make a diagonal matrix preventing assignment 
+        <span class="c1"># now we make a diagonal matrix preventing assignment
 </span>        <span class="c1"># of the same value to cells in the same row
 </span>        <span class="n">ListConstraintsRow</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="c1"># for each value in domain of Y_i
@@ -77,9 +77,9 @@
             <span class="c1"># for each value, penalize identical assignment
 </span>            <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
                 <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-                    <span class="k">if</span> <span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">:</span> 
+                    <span class="k">if</span> <span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">:</span>
                         <span class="n">ListConstraintsBox</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-                    <span class="k">else</span><span class="p">:</span> 
+                    <span class="k">else</span><span class="p">:</span>
                         <span class="n">ListConstraintsBox</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">top</span><span class="p">)</span>
             <span class="n">Problem</span><span class="p">.</span><span class="nc">AddFunction</span><span class="p">([</span><span class="n">box_indices</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">box_indices</span><span class="p">[</span><span class="n">l</span><span class="p">]],</span> <span class="n">ListConstraintsBox</span><span class="p">)</span>
 
