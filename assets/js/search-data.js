@@ -43,6 +43,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
+            },},{id: "projects-3d-brain-segmentation",
+          title: '3D Brain Segmentation',
+          description: "Subcortical structure segmentation of 3D brain MRIs",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/3d_segment_short/";
             },},{id: "projects-abalone-age",
           title: 'Abalone Age',
           description: "Predicting the age of abalones based on physical measurements",
